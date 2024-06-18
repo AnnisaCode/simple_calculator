@@ -8,14 +8,14 @@
 <body>
     <h1><?php echo "Simple Calculator"; ?></h1> 
     <form action="includes/operate.php" method="post">
-        <input type="number" name="num1" placeholder="Enter first number" required>
+        <input type="text" name="num1" placeholder="Enter first number" required>
         <select name="operator">
             <option value="add">+</option>
             <option value="subtract">-</option>
             <option value="multiply">*</option>
             <option value="divide">/</option>
         </select>
-        <input type="number" name="num2" placeholder="Enter second number" required>
+        <input type="text" name="num2" placeholder="Enter second number" required>
         <button type="submit" name="submit">Hitung</button>
     </form>
 
