@@ -20,10 +20,12 @@
     </form>
 
     <?php
-    // Cek apakah ada parameter result yang dikirimkan dari operate.php
-    if (isset($_GET['result'])) {
-        $result = $_GET['result'];
+    session_start();
+    if (isset($_SESSION['result'])) {
+        $result = $_SESSION['result'];
         echo "<p>Hasil perhitungan: $result</p>";
+        // Menghapus hasil setelah ditampilkan
+        unset($_SESSION['result']);
     }
     ?>
 </body>

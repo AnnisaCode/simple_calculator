@@ -1,15 +1,14 @@
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Ambil nilai dari form
     $num1 = $_POST['num1'];
     $num2 = $_POST['num2'];
     $operator = $_POST['operator'];
 
-    // Validasi input sebagai angka
     if (!is_numeric($num1) || !is_numeric($num2)) {
         $result = "Masukkan harus berupa angka.";
     } else {
-        // Lakukan operasi berdasarkan operator yang dipilih
         switch ($operator) {
             case 'add':
                 $result = $num1 + $num2;
@@ -33,8 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Redirect kembali ke calculator.php dengan parameter hasil
-    header("Location: ../index.php?result=" . urlencode($result));
+    $_SESSION['result'] = $result;
+    header("Location: ../index.php");
     exit();
 }
-?>
